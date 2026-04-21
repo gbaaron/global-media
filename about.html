@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Global Media</title>
+    <meta name="description" content="Global Media builds websites for entertainers, leagues, and personalities. No templates. Real code.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎙️</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #08080d;
+            --color-bg-soft: #0e0e17;
+            --color-card: #12121c;
+            --color-accent: #a855f7;
+            --color-accent-alt: #22d3ee;
+            --color-accent-glow: rgba(168, 85, 247, 0.18);
+            --color-accent-alt-glow: rgba(34, 211, 238, 0.16);
+            --color-text: #ffffff;
+            --color-text-muted: #8a8aa0;
+            --color-text-label: #b6b6cc;
+            --color-border: #22222f;
+            --color-border-soft: #1a1a26;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --grad-brand: linear-gradient(135deg, #a855f7 0%, #6366f1 50%, #22d3ee 100%);
+            --radius-lg: 18px;
+            --radius-md: 12px;
+            --radius-sm: 8px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { background: var(--color-bg); }
+        body { font-family: var(--font-body); color: var(--color-text); line-height: 1.7; overflow-x: hidden; min-height: 100vh; }
+        body::before {
+            content: ''; position: fixed; inset: -10%;
+            background:
+                radial-gradient(ellipse 900px 700px at 12% 8%, rgba(168, 85, 247, 0.16), transparent 55%),
+                radial-gradient(ellipse 800px 650px at 90% 28%, rgba(34, 211, 238, 0.11), transparent 55%),
+                radial-gradient(ellipse 700px 600px at 50% 85%, rgba(99, 102, 241, 0.09), transparent 60%);
+            z-index: 0; pointer-events: none; animation: ambientShift 22s ease-in-out infinite alternate; filter: blur(10px);
+        }
+        body::after {
+            content: ''; position: fixed; inset: 0;
+            background-image:
+                radial-gradient(circle at 1px 1px, rgba(168, 85, 247, 0.06) 1px, transparent 1.5px),
+                linear-gradient(to right, rgba(168, 85, 247, 0.022) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(168, 85, 247, 0.022) 1px, transparent 1px),
+                radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.45) 100%);
+            background-size: 24px 24px, 80px 80px, 80px 80px, 100% 100%;
+            z-index: 0; pointer-events: none;
+        }
+        @keyframes ambientShift { 0% { transform: translate(0, 0); } 100% { transform: translate(-2%, -3%); } }
+        main, header, footer, section { position: relative; z-index: 1; }
+
+        .nav { position: sticky; top: 0; z-index: 10; background: rgba(8, 8, 13, 0.78); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--color-border-soft); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0.9rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 0.75rem; color: var(--color-text); text-decoration: none; font-weight: 700; letter-spacing: -0.01em; }
+        .logo-mark { width: 34px; height: 34px; border-radius: 8px; background: var(--grad-brand); display: flex; align-items: center; justify-content: center; color: #08080d; font-weight: 800; font-size: 0.95rem; box-shadow: 0 8px 20px rgba(168, 85, 247, 0.25); }
+        .logo-text span { font-family: var(--font-display); font-style: italic; font-weight: 600; color: var(--color-accent); }
+        .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; }
+        .nav-links a { color: var(--color-text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s ease; }
+        .nav-links a:hover, .nav-links a.active { color: var(--color-text); }
+        .nav-cta { padding: 0.55rem 1.1rem; background: var(--grad-brand); color: #08080d !important; border-radius: 8px; font-weight: 700 !important; }
+        @media (max-width: 720px) { .nav-links li:not(.nav-cta-wrap) { display: none; } }
+
+        .page-hero { max-width: 1000px; margin: 0 auto; padding: 4rem 1.5rem 2rem; text-align: center; }
+        .page-hero .kicker { color: var(--color-accent); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; margin-bottom: 0.75rem; }
+        .page-hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 1rem; }
+        .page-hero h1 em { font-family: var(--font-display); font-style: italic; font-weight: 400; color: var(--color-accent); }
+        .page-hero p { color: var(--color-text-muted); max-width: 650px; margin: 0 auto; font-size: 1.05rem; }
+
+        .section { max-width: 900px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+        .section h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.01em; }
+        .section h2 em { font-family: var(--font-display); font-style: italic; font-weight: 400; color: var(--color-accent-alt); }
+        .section p { color: var(--color-text-label); margin-bottom: 1rem; font-size: 0.95rem; }
+        .section p strong { color: var(--color-text); font-weight: 600; }
+
+        .values { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 2rem; }
+        .value { background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 1.5rem; }
+        .value .val-num { font-family: var(--font-display); font-style: italic; color: var(--color-accent); font-size: 1.8rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .value h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+        .value p { font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6; margin: 0; }
+
+        .brand-family { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .brand-tile { background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 1.25rem; }
+        .brand-tile .bt-name { font-weight: 700; margin-bottom: 0.25rem; }
+        .brand-tile .bt-name em { font-family: var(--font-display); font-style: italic; color: var(--color-accent); font-weight: 600; }
+        .brand-tile p { font-size: 0.82rem; color: var(--color-text-muted); margin: 0; line-height: 1.5; }
+
+        .contact-card { background: linear-gradient(135deg, #12121c 0%, #1a1226 100%); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 2.25rem; margin-top: 2rem; position: relative; overflow: hidden; }
+        .contact-card::before { content: ''; position: absolute; inset: 0 0 auto 0; height: 3px; background: var(--grad-brand); }
+        .contact-row { display: flex; align-items: center; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--color-border-soft); }
+        .contact-row:last-child { border-bottom: none; }
+        .contact-row .ico { width: 36px; height: 36px; border-radius: 8px; background: var(--color-accent-glow); display: flex; align-items: center; justify-content: center; color: var(--color-accent); flex-shrink: 0; }
+        .contact-row .ico svg { width: 18px; height: 18px; }
+        .contact-row .label { font-size: 0.72rem; color: var(--color-text-muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.15rem; }
+        .contact-row .value { font-weight: 600; font-size: 0.95rem; color: var(--color-text); }
+        .contact-row a { color: inherit; text-decoration: none; }
+        .contact-row a:hover { color: var(--color-accent); }
+
+        .site-footer { text-align: center; padding: 2.5rem 1.5rem 3rem; color: #4a4a60; font-size: 0.78rem; border-top: 1px solid var(--color-border-soft); max-width: 1100px; margin: 0 auto; }
+        .site-footer a { color: var(--color-text-muted); text-decoration: none; margin: 0 0.6rem; }
+        .site-footer a:hover { color: var(--color-accent); }
+        .site-footer .tagline { font-family: var(--font-display); font-style: italic; color: var(--color-text-muted); margin-bottom: 0.75rem; }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="/" class="logo">
+                <div class="logo-mark">GM</div>
+                <div class="logo-text">Global <span>Media</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sales.html">Services</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li class="nav-cta-wrap"><a href="index.html#contact" class="nav-cta">Start a Project</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="kicker">About</div>
+        <h1>Not a template shop. A <em>studio</em>.</h1>
+        <p>Global Media is a hand-coded web studio for the entertainment side of the internet — musicians, podcasters, leagues, athletes, and personalities who want more than a Linktree.</p>
+    </section>
+
+    <section class="section">
+        <h2>What we <em>actually</em> do</h2>
+        <p>We build custom sites from scratch — HTML, CSS, JavaScript, Airtable, Netlify. No WordPress themes, no Wix, no template kits. Every client gets a site that looks and behaves like <strong>their brand specifically</strong>, because it was written specifically for them.</p>
+        <p>The pitch is simple: we spec it free, build a live preview you can log into, and you only pay when it's ready to go live on your domain. No one's locked in, no one's paying upfront for a site that doesn't exist yet.</p>
+        <p>Once you're live, we can keep going — content pipelines, feature adds, analytics, live-stats automation. Or we hand you the keys and walk away. Your call.</p>
+    </section>
+
+    <section class="section">
+        <h2>How we <em>think</em></h2>
+        <div class="values">
+            <div class="value">
+                <div class="val-num">01</div>
+                <h3>Match the human</h3>
+                <p>A bubbly vlogger shouldn't get a minimalist SaaS dashboard. We design for the person, not the trend.</p>
+            </div>
+            <div class="value">
+                <div class="val-num">02</div>
+                <h3>No fake data</h3>
+                <p>Previews use real numbers, real pages, real flows. So you can see exactly what launch day feels like.</p>
+            </div>
+            <div class="value">
+                <div class="val-num">03</div>
+                <h3>You own it</h3>
+                <p>Your domain, your Airtable, your content, your code. We don't hold your site hostage.</p>
+            </div>
+            <div class="value">
+                <div class="val-num">04</div>
+                <h3>Real engineering</h3>
+                <p>Auth, analytics, data pipelines, integrations. Not just a pretty landing page.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>The <em>family</em></h2>
+        <p>Global Media is one arm of <strong>Globally Ballin LLC</strong>. Sister brands handle other corners of the internet.</p>
+        <div class="brand-family">
+            <div class="brand-tile">
+                <div class="bt-name">Globally <em>Ballin</em></div>
+                <p>Sports editorial and media. The original.</p>
+            </div>
+            <div class="brand-tile">
+                <div class="bt-name">Global <em>Storefront</em></div>
+                <p>Sites for bakeries, restaurants, and retail.</p>
+            </div>
+            <div class="brand-tile">
+                <div class="bt-name">Global <em>Media</em></div>
+                <p>You're here. Entertainers &amp; leagues.</p>
+            </div>
+            <div class="brand-tile">
+                <div class="bt-name">KRS <em>Moving</em></div>
+                <p>Separate venture — furniture installs + moving.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Get in <em>touch</em></h2>
+        <div class="contact-card">
+            <div class="contact-row">
+                <div class="ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
+                <div>
+                    <div class="label">Email</div>
+                    <div class="value"><a href="mailto:aaron@globalmedia.com">aaron@globalmedia.com</a></div>
+                </div>
+            </div>
+            <div class="contact-row">
+                <div class="ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div>
+                    <div class="label">Based in</div>
+                    <div class="value">United States · Serving global clients</div>
+                </div>
+            </div>
+            <div class="contact-row">
+                <div class="ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 14L21 3m0 0h-7m7 0v7M21 14v5a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h5"/></svg></div>
+                <div>
+                    <div class="label">Start a Project</div>
+                    <div class="value"><a href="index.html#contact">Send a brief →</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <p class="tagline">Websites for entertainers, leagues &amp; personalities.</p>
+        <a href="index.html">Home</a>
+        <a href="sales.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="mailto:aaron@globalmedia.com">Contact</a>
+        <p style="margin-top: 1rem;">&copy; 2026 Global Media · A Globally Ballin LLC brand</p>
+    </footer>
+</body>
+</html>

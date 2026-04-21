@@ -1,0 +1,9 @@
+node_modules/
+.env
+.env.*
+.DS_Store
+.netlify/
+*.log
+.vscode/
+.claude/
+package-lock.json

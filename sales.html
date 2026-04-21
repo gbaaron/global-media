@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Global Media</title>
+    <meta name="description" content="Custom fan hubs, league platforms, card games, and fantasy sims for entertainers, athletes, and personalities.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎙️</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #08080d;
+            --color-bg-soft: #0e0e17;
+            --color-card: #12121c;
+            --color-card-hover: #181826;
+            --color-accent: #a855f7;
+            --color-accent-alt: #22d3ee;
+            --color-accent-glow: rgba(168, 85, 247, 0.18);
+            --color-accent-alt-glow: rgba(34, 211, 238, 0.16);
+            --color-text: #ffffff;
+            --color-text-muted: #8a8aa0;
+            --color-text-label: #b6b6cc;
+            --color-border: #22222f;
+            --color-border-soft: #1a1a26;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --grad-brand: linear-gradient(135deg, #a855f7 0%, #6366f1 50%, #22d3ee 100%);
+            --radius-lg: 18px;
+            --radius-md: 12px;
+            --radius-sm: 8px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { background: var(--color-bg); }
+        body { font-family: var(--font-body); color: var(--color-text); line-height: 1.7; overflow-x: hidden; min-height: 100vh; }
+        body::before {
+            content: ''; position: fixed; inset: -10%;
+            background:
+                radial-gradient(ellipse 900px 700px at 12% 8%, rgba(168, 85, 247, 0.16), transparent 55%),
+                radial-gradient(ellipse 800px 650px at 90% 28%, rgba(34, 211, 238, 0.11), transparent 55%),
+                radial-gradient(ellipse 700px 600px at 50% 85%, rgba(99, 102, 241, 0.09), transparent 60%);
+            z-index: 0; pointer-events: none;
+            animation: ambientShift 22s ease-in-out infinite alternate;
+            filter: blur(10px);
+        }
+        body::after {
+            content: ''; position: fixed; inset: 0;
+            background-image:
+                radial-gradient(circle at 1px 1px, rgba(168, 85, 247, 0.06) 1px, transparent 1.5px),
+                linear-gradient(to right, rgba(168, 85, 247, 0.022) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(168, 85, 247, 0.022) 1px, transparent 1px),
+                radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.45) 100%);
+            background-size: 24px 24px, 80px 80px, 80px 80px, 100% 100%;
+            z-index: 0; pointer-events: none;
+        }
+        @keyframes ambientShift { 0% { transform: translate(0, 0); } 100% { transform: translate(-2%, -3%); } }
+        main, header, footer, section { position: relative; z-index: 1; }
+
+        .nav { position: sticky; top: 0; z-index: 10; background: rgba(8, 8, 13, 0.78); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--color-border-soft); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0.9rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 0.75rem; color: var(--color-text); text-decoration: none; font-weight: 700; letter-spacing: -0.01em; }
+        .logo-mark { width: 34px; height: 34px; border-radius: 8px; background: var(--grad-brand); display: flex; align-items: center; justify-content: center; color: #08080d; font-weight: 800; font-size: 0.95rem; box-shadow: 0 8px 20px rgba(168, 85, 247, 0.25); }
+        .logo-text span { font-family: var(--font-display); font-style: italic; font-weight: 600; color: var(--color-accent); }
+        .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; }
+        .nav-links a { color: var(--color-text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s ease; }
+        .nav-links a:hover, .nav-links a.active { color: var(--color-text); }
+        .nav-cta { padding: 0.55rem 1.1rem; background: var(--grad-brand); color: #08080d !important; border-radius: 8px; font-weight: 700 !important; }
+        @media (max-width: 720px) { .nav-links li:not(.nav-cta-wrap) { display: none; } }
+
+        .page-hero { max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem 2rem; text-align: center; }
+        .page-hero .kicker { color: var(--color-accent); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; margin-bottom: 0.75rem; }
+        .page-hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 1rem; }
+        .page-hero h1 em { font-family: var(--font-display); font-style: italic; font-weight: 400; color: var(--color-accent); }
+        .page-hero p { color: var(--color-text-muted); max-width: 600px; margin: 0 auto; font-size: 1rem; }
+
+        .section { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+        .section h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+        .section h2 em { font-family: var(--font-display); font-style: italic; font-weight: 400; color: var(--color-accent-alt); }
+        .section .sublead { color: var(--color-text-muted); max-width: 640px; margin-bottom: 2rem; }
+
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+        .service-card { background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.75rem; transition: border-color 0.2s ease, transform 0.2s ease; position: relative; overflow: hidden; }
+        .service-card::before { content: ''; position: absolute; inset: 0 0 auto 0; height: 3px; background: var(--grad-brand); opacity: 0; transition: opacity 0.25s ease; }
+        .service-card:hover { border-color: rgba(168, 85, 247, 0.35); transform: translateY(-4px); }
+        .service-card:hover::before { opacity: 1; }
+        .service-tag { display: inline-block; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; color: var(--color-accent); background: var(--color-accent-glow); padding: 0.25rem 0.6rem; border-radius: 999px; margin-bottom: 0.85rem; }
+        .service-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.6rem; }
+        .service-card p { font-size: 0.88rem; color: var(--color-text-muted); margin-bottom: 1rem; line-height: 1.65; }
+        .service-card ul { list-style: none; padding: 0; }
+        .service-card li { font-size: 0.82rem; color: var(--color-text-label); padding: 0.3rem 0; border-top: 1px solid var(--color-border-soft); }
+        .service-card li:first-child { border-top: none; }
+        .service-card li::before { content: '— '; color: var(--color-accent); font-weight: 700; }
+
+        .pricing-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .pricing-tile { background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 1.5rem; text-align: center; }
+        .pricing-tile .tier-name { font-family: var(--font-display); font-style: italic; color: var(--color-accent); font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .pricing-tile .range { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.75rem; }
+        .pricing-tile .desc { font-size: 0.82rem; color: var(--color-text-muted); }
+
+        .cta-card { background: linear-gradient(135deg, #12121c 0%, #1a1226 100%); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 2.5rem; margin-top: 2.5rem; text-align: center; position: relative; overflow: hidden; }
+        .cta-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(168, 85, 247, 0.12), transparent 70%); pointer-events: none; }
+        .cta-card > * { position: relative; z-index: 1; }
+        .cta-card h2 { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .cta-card p { color: var(--color-text-muted); font-size: 0.92rem; margin-bottom: 1.25rem; }
+        .cta-btn { display: inline-block; padding: 0.85rem 2rem; background: var(--grad-brand); color: #08080d; border-radius: var(--radius-md); font-weight: 700; text-decoration: none; font-size: 0.92rem; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .cta-btn:hover { transform: translateY(-1px); box-shadow: 0 12px 30px rgba(168, 85, 247, 0.3); }
+
+        .site-footer { text-align: center; padding: 2.5rem 1.5rem 3rem; color: #4a4a60; font-size: 0.78rem; border-top: 1px solid var(--color-border-soft); max-width: 1100px; margin: 0 auto; }
+        .site-footer a { color: var(--color-text-muted); text-decoration: none; margin: 0 0.6rem; }
+        .site-footer a:hover { color: var(--color-accent); }
+        .site-footer .tagline { font-family: var(--font-display); font-style: italic; color: var(--color-text-muted); margin-bottom: 0.75rem; }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="/" class="logo">
+                <div class="logo-mark">GM</div>
+                <div class="logo-text">Global <span>Media</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sales.html" class="active">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="nav-cta-wrap"><a href="index.html#contact" class="nav-cta">Start a Project</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="kicker">Services</div>
+        <h1>Custom-built, not <em>templated</em>.</h1>
+        <p>Every site is hand-coded for the client's world. Your fans, your game, your rules — not a WordPress theme with your logo on it.</p>
+    </section>
+
+    <section class="section">
+        <h2>What we <em>build</em></h2>
+        <p class="sublead">Pick what fits. Mix and match. Every engagement starts with a free preview site.</p>
+        <div class="service-grid">
+            <div class="service-card">
+                <span class="service-tag">Fan Hub</span>
+                <h3>Personality Fan Hub</h3>
+                <p>The "everything page" for musicians, vloggers, podcasters, and creators.</p>
+                <ul>
+                    <li>Article, video, and podcast archives</li>
+                    <li>Tiered membership with fan submissions</li>
+                    <li>Ratings, comments, favorites</li>
+                    <li>Merch store integration</li>
+                    <li>Live stream embed with chat</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <span class="service-tag">League</span>
+                <h3>Sports League Platform</h3>
+                <p>Full-stack hub for a league, team, or sports property.</p>
+                <ul>
+                    <li>Match schedules + live stats</li>
+                    <li>Standings and leaderboards</li>
+                    <li>Pick'em and prediction games</li>
+                    <li>Article and recap CMS</li>
+                    <li>Fan engagement tracking</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <span class="service-tag">Game</span>
+                <h3>Fantasy Card Game</h3>
+                <p>Collectible card game tied to real player performance.</p>
+                <ul>
+                    <li>Lineup builder (6-slot cards)</li>
+                    <li>Auto-scoring vs live match data</li>
+                    <li>Weekly leaderboards</li>
+                    <li>QR-scannable physical cards</li>
+                    <li>Cross-site credits economy</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <span class="service-tag">Sim</span>
+                <h3>Manager Simulation</h3>
+                <p>Season-long management game with drafting, trading, and matches.</p>
+                <ul>
+                    <li>Real roster + stats baseline</li>
+                    <li>Trades, contracts, free agency</li>
+                    <li>Point-by-point match sim</li>
+                    <li>Save-state persistence</li>
+                    <li>Achievement + credit rewards</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <span class="service-tag">Music</span>
+                <h3>Musician Site</h3>
+                <p>Tour, discography, merch, and fan club in one place.</p>
+                <ul>
+                    <li>Tour dates with ticket links</li>
+                    <li>Music catalog with streaming links</li>
+                    <li>Message requests (Cameo-style)</li>
+                    <li>Exclusive content tiers</li>
+                    <li>Social feed aggregation</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <span class="service-tag">Podcast</span>
+                <h3>Podcast Hub</h3>
+                <p>Ad-free home base for podcasters with power-user tools.</p>
+                <ul>
+                    <li>Full episode archive + transcripts</li>
+                    <li>Timestamped comments</li>
+                    <li>Fan Q&amp;A submissions + voting</li>
+                    <li>Supporter tiers with perks</li>
+                    <li>Merch + Patreon integration</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <span class="service-tag">Card</span>
+                <h3>Collectible Card Creator</h3>
+                <p>Design and export digital + physical trading cards for your brand.</p>
+                <ul>
+                    <li>Photo + stats + rewards</li>
+                    <li>QR-linked redemption flow</li>
+                    <li>Print-ready physical export</li>
+                    <li>Self-contained HTML outputs</li>
+                    <li>Base64 + ZIP packaging</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <span class="service-tag">AI</span>
+                <h3>AI Content Tool</h3>
+                <p>RAG-powered chat, content analysis, or persona assistant built on your corpus.</p>
+                <ul>
+                    <li>Podcast/transcript ingestion</li>
+                    <li>Persona-based voice</li>
+                    <li>Fact-check + source citations</li>
+                    <li>User feedback loop</li>
+                    <li>Vote-to-suggest monetization</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <span class="service-tag">Landing</span>
+                <h3>Launch / Landing Page</h3>
+                <p>Fast-turn single-page site for a drop, a tour, or a campaign.</p>
+                <ul>
+                    <li>Brand-extracted palette</li>
+                    <li>Email capture + contact form</li>
+                    <li>Mailchimp / ConvertKit wiring</li>
+                    <li>Instagram-ready visual</li>
+                    <li>Mobile-first</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>How the <em>pricing</em> works</h2>
+        <p class="sublead">Every engagement starts with a free preview. Pay when it's ready to go live.</p>
+        <div class="pricing-row">
+            <div class="pricing-tile">
+                <div class="tier-name">Preview</div>
+                <div class="range">Free</div>
+                <div class="desc">Live preview site behind your Global Media login. Nothing to pay until you say go.</div>
+            </div>
+            <div class="pricing-tile">
+                <div class="tier-name">Launch</div>
+                <div class="range">One-time fee</div>
+                <div class="desc">Hand-off to your domain, production Airtable setup, launch-day support.</div>
+            </div>
+            <div class="pricing-tile">
+                <div class="tier-name">Ongoing</div>
+                <div class="range">Monthly</div>
+                <div class="desc">Content updates, feature adds, analytics reporting, data pipelines.</div>
+            </div>
+        </div>
+        <div class="cta-card">
+            <h2>Want the real number?</h2>
+            <p>Every project is scoped independently. Tell us what you want and we'll send back a specific quote.</p>
+            <a href="index.html#contact" class="cta-btn">Request a Quote</a>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <p class="tagline">Websites for entertainers, leagues &amp; personalities.</p>
+        <a href="index.html">Home</a>
+        <a href="sales.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="mailto:aaron@globalmedia.com">Contact</a>
+        <p style="margin-top: 1rem;">&copy; 2026 Global Media · A Globally Ballin LLC brand</p>
+    </footer>
+</body>
+</html>
