@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | Global Media</title>
-    <meta name="description" content="Global Media builds websites for entertainers, leagues, and personalities. No templates. Real code.">
+    <title>About Aaron | Global Media</title>
+    <meta name="description" content="Meet Aaron, the person behind Global Media. Personally involved in every project from first idea to launch. No faceless agency, no templates.">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎙️</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,400;1,600&family=Caveat:wght@600&display=swap" rel="stylesheet">
     <style>
         :root {
             --color-bg: #08080d;
@@ -25,6 +25,7 @@
             --color-border-soft: #1a1a26;
             --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             --font-display: 'Playfair Display', Georgia, serif;
+            --font-hand: 'Caveat', cursive;
             --grad-brand: linear-gradient(135deg, #a855f7 0%, #6366f1 50%, #22d3ee 100%);
             --radius-lg: 18px;
             --radius-md: 12px;
@@ -65,31 +66,85 @@
         .nav-cta { padding: 0.55rem 1.1rem; background: var(--grad-brand); color: #08080d !important; border-radius: 8px; font-weight: 700 !important; }
         @media (max-width: 720px) { .nav-links li:not(.nav-cta-wrap) { display: none; } }
 
-        .page-hero { max-width: 1000px; margin: 0 auto; padding: 4rem 1.5rem 2rem; text-align: center; }
-        .page-hero .kicker { color: var(--color-accent); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; margin-bottom: 0.75rem; }
-        .page-hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 1rem; }
-        .page-hero h1 em { font-family: var(--font-display); font-style: italic; font-weight: 400; color: var(--color-accent); }
-        .page-hero p { color: var(--color-text-muted); max-width: 650px; margin: 0 auto; font-size: 1.05rem; }
+        /* ---- INTRO / PORTRAIT ---- */
+        .intro { max-width: 1080px; margin: 0 auto; padding: 4rem 1.5rem 1.5rem; display: grid; grid-template-columns: 320px 1fr; gap: 3rem; align-items: center; }
+        @media (max-width: 800px) { .intro { grid-template-columns: 1fr; gap: 2rem; padding-top: 2.5rem; justify-items: center; text-align: center; } }
 
-        .section { max-width: 900px; margin: 0 auto; padding: 2.5rem 1.5rem; }
-        .section h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.01em; }
+        .portrait { position: relative; width: 300px; height: 300px; flex-shrink: 0; }
+        .portrait::after { content: ''; position: absolute; inset: -14px; border-radius: 30px; background: var(--grad-brand); opacity: 0.14; filter: blur(26px); z-index: -1; }
+        .portrait-frame {
+            position: relative; width: 100%; height: 100%;
+            border-radius: 24px; padding: 5px; background: var(--grad-brand);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04);
+        }
+        .portrait-inner { position: relative; width: 100%; height: 100%; border-radius: 20px; overflow: hidden; background: #0a0a12; }
+        .portrait-inner img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; }
+        /* Nameplate gradient intentionally covers the bottom-right corner watermark */
+        .portrait-plate {
+            position: absolute; left: 0; right: 0; bottom: 0; height: 42%;
+            background: linear-gradient(to top, rgba(8,8,13,0.96) 12%, rgba(8,8,13,0.72) 48%, transparent 100%);
+            display: flex; flex-direction: column; justify-content: flex-end;
+            padding: 0 1.1rem 1rem; pointer-events: none;
+        }
+        .portrait-plate .pp-name { font-family: var(--font-display); font-weight: 600; font-size: 1.5rem; line-height: 1; letter-spacing: -0.01em; }
+        .portrait-plate .pp-role { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-alt); font-weight: 700; margin-top: 0.4rem; }
+        .portrait-tag { position: absolute; top: -14px; right: -10px; transform: rotate(6deg); font-family: var(--font-hand); font-size: 1.35rem; color: var(--color-accent); background: var(--color-card); border: 1px solid var(--color-border); padding: 0.2rem 0.8rem; border-radius: 40px; box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
+
+        .intro-copy .kicker { color: var(--color-accent); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; margin-bottom: 0.75rem; }
+        .intro-copy h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.08; margin-bottom: 1rem; }
+        .intro-copy h1 em { font-family: var(--font-display); font-style: italic; font-weight: 400; color: var(--color-accent); }
+        .intro-copy p { color: var(--color-text-label); font-size: 1.05rem; max-width: 560px; }
+        @media (max-width: 800px) { .intro-copy p { margin: 0 auto; } }
+
+        .section { max-width: 780px; margin: 0 auto; padding: 2.25rem 1.5rem; }
+        .section h2 { font-size: 1.55rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: -0.01em; }
         .section h2 em { font-family: var(--font-display); font-style: italic; font-weight: 400; color: var(--color-accent-alt); }
-        .section p { color: var(--color-text-label); margin-bottom: 1rem; font-size: 0.95rem; }
+        .section p { color: var(--color-text-label); margin-bottom: 1.1rem; font-size: 1rem; }
+        .section p:last-child { margin-bottom: 0; }
         .section p strong { color: var(--color-text); font-weight: 600; }
 
-        .values { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 2rem; }
-        .value { background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 1.5rem; }
-        .value .val-num { font-family: var(--font-display); font-style: italic; color: var(--color-accent); font-size: 1.8rem; font-weight: 600; margin-bottom: 0.5rem; }
-        .value h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
-        .value p { font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6; margin: 0; }
+        .pullquote { border-left: 3px solid var(--color-accent); padding: 0.4rem 0 0.4rem 1.4rem; margin: 1.75rem 0; font-family: var(--font-display); font-style: italic; font-size: 1.3rem; line-height: 1.5; color: var(--color-text); }
 
-        .brand-family { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .brand-tile { background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 1.25rem; }
-        .brand-tile .bt-name { font-weight: 700; margin-bottom: 0.25rem; }
-        .brand-tile .bt-name em { font-family: var(--font-display); font-style: italic; color: var(--color-accent); font-weight: 600; }
-        .brand-tile p { font-size: 0.82rem; color: var(--color-text-muted); margin: 0; line-height: 1.5; }
+        .signoff { display: flex; align-items: center; gap: 1rem; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border-soft); }
+        .signoff .sig { font-family: var(--font-hand); font-size: 2.2rem; color: var(--color-accent); line-height: 1; }
+        .signoff .sig-role { font-size: 0.82rem; color: var(--color-text-muted); }
 
-        .contact-card { background: linear-gradient(135deg, #12121c 0%, #1a1226 100%); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 2.25rem; margin-top: 2rem; position: relative; overflow: hidden; }
+        /* ---- WHAT I BUILT ---- */
+        .build-list { display: grid; gap: 0.9rem; margin-top: 1.5rem; }
+        .build-item { display: flex; gap: 1rem; align-items: flex-start; background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 1.1rem 1.25rem; transition: border-color 0.25s ease, transform 0.25s ease; }
+        .build-item:hover { border-color: rgba(168,85,247,0.4); transform: translateY(-2px); }
+        .build-item .bi-ico { width: 38px; height: 38px; border-radius: 9px; background: var(--color-accent-glow); color: var(--color-accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .build-item .bi-ico svg { width: 20px; height: 20px; }
+        .build-item h3 { font-size: 0.98rem; font-weight: 700; margin-bottom: 0.2rem; }
+        .build-item p { font-size: 0.86rem; color: var(--color-text-muted); margin: 0; line-height: 1.55; }
+
+        .values { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .value { background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 1.4rem; }
+        .value .val-num { font-family: var(--font-display); font-style: italic; color: var(--color-accent); font-size: 1.7rem; font-weight: 600; margin-bottom: 0.4rem; }
+        .value h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.35rem; }
+        .value p { font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.55; margin: 0; }
+
+        /* ---- GLOBAL STOREFRONT SPOTLIGHT ---- */
+        .gs-callout {
+            display: grid; grid-template-columns: auto 1fr; gap: 1.5rem; align-items: center;
+            background: linear-gradient(135deg, #12121c 0%, #171326 100%);
+            border: 1px solid var(--color-border); border-radius: var(--radius-lg);
+            padding: 1.75rem 1.9rem; margin-top: 1.5rem; position: relative; overflow: hidden;
+            text-decoration: none; color: inherit; transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .gs-callout::before { content: ''; position: absolute; inset: 0 0 auto 0; height: 3px; background: linear-gradient(135deg, #d4af37 0%, #f5d878 50%, #d4af37 100%); }
+        .gs-callout:hover { border-color: rgba(212,175,55,0.45); transform: translateY(-3px); box-shadow: 0 24px 50px rgba(0,0,0,0.45); }
+        .gs-logo { width: 72px; height: 72px; border-radius: 14px; background: #0f0f1a; border: 1px solid rgba(212,175,55,0.35); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 10px 26px rgba(0,0,0,0.4); overflow: hidden; }
+        .gs-logo img { width: 100%; height: 100%; object-fit: contain; padding: 8px; }
+        .gs-body .gs-eyebrow { font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: #d4af37; font-weight: 700; margin-bottom: 0.3rem; }
+        .gs-body h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem; letter-spacing: -0.01em; }
+        .gs-body p { font-size: 0.9rem; color: var(--color-text-muted); margin: 0; line-height: 1.55; }
+        .gs-visit { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.7rem; font-size: 0.82rem; font-weight: 700; color: #f5d878; }
+        .gs-visit svg { width: 15px; height: 15px; transition: transform 0.25s ease; }
+        .gs-callout:hover .gs-visit svg { transform: translate(2px, -2px); }
+        @media (max-width: 560px) { .gs-callout { grid-template-columns: 1fr; text-align: center; justify-items: center; } }
+
+        .contact-card { background: linear-gradient(135deg, #12121c 0%, #1a1226 100%); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 2.25rem; margin-top: 1.75rem; position: relative; overflow: hidden; }
         .contact-card::before { content: ''; position: absolute; inset: 0 0 auto 0; height: 3px; background: var(--grad-brand); }
         .contact-row { display: flex; align-items: center; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--color-border-soft); }
         .contact-row:last-child { border-bottom: none; }
@@ -122,75 +177,145 @@
         </div>
     </nav>
 
-    <section class="page-hero">
-        <div class="kicker">About</div>
-        <h1>Not a template shop. A <em>studio</em>.</h1>
-        <p>Global Media is a hand-coded web studio for the entertainment side of the internet — musicians, podcasters, leagues, athletes, and personalities who want more than a Linktree.</p>
+    <!-- INTRO -->
+    <section class="intro">
+        <div class="portrait">
+            <div class="portrait-frame">
+                <div class="portrait-inner">
+                    <img src="https://res.cloudinary.com/djngpyv15/image/upload/v1785112053/1760054545899_wawcjz.jpg" alt="Aaron, founder of Global Media" loading="eager">
+                    <div class="portrait-plate">
+                        <div class="pp-name">Aaron</div>
+                        <div class="pp-role">Founder &amp; Developer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="intro-copy">
+            <div class="kicker">About</div>
+            <h1>I'm Aaron, the person <em>behind</em> Global Media.</h1>
+            <p>No faceless agency, no templates. Every project has me personally involved from the first idea to launch. I lead the direction, stay hands-on through the build, and make sure your site ends up feeling like you.</p>
+        </div>
     </section>
 
+    <!-- THE STORY -->
     <section class="section">
-        <h2>What we <em>actually</em> do</h2>
-        <p>We build custom sites from scratch — HTML, CSS, JavaScript, Airtable, Netlify. No WordPress themes, no Wix, no template kits. Every client gets a site that looks and behaves like <strong>their brand specifically</strong>, because it was written specifically for them.</p>
-        <p>The pitch is simple: we spec it free, build a live preview you can log into, and you only pay when it's ready to go live on your domain. No one's locked in, no one's paying upfront for a site that doesn't exist yet.</p>
-        <p>Once you're live, we can keep going — content pipelines, feature adds, analytics, live-stats automation. Or we hand you the keys and walk away. Your call.</p>
+        <h2>Why I started this</h2>
+        <p>A lot of talented people (musicians, athletes, podcasters, small leagues) end up with a generic template or a link-in-bio page that doesn't reflect who they are. Global Media is my answer to that.</p>
+        <p>Every site is built by hand in real code: HTML, CSS, JavaScript, Airtable, Netlify. No drag-and-drop builders, no theme kits. The result is a site made for <strong>you specifically</strong>: your audience, your voice, the way you actually work.</p>
     </section>
 
+    <!-- WHAT I'VE DONE / BUILT -->
     <section class="section">
-        <h2>How we <em>think</em></h2>
+        <h2>What I <em>actually</em> build</h2>
+        <p>This isn't a landing page with a pretty header and nothing behind it. Here's the real work that goes into every project I take on:</p>
+        <div class="build-list">
+            <div class="build-item">
+                <div class="bi-ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg></div>
+                <div>
+                    <h3>Hand-coded, from a blank file</h3>
+                    <p>Every page is written from scratch, so nothing is bloated, broken, or borrowed from a template someone else is also using.</p>
+                </div>
+            </div>
+            <div class="build-item">
+                <div class="bi-ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10a2 2 0 002 2h12a2 2 0 002-2V7M4 7l8-4 8 4M4 7l8 4 8-4"/></svg></div>
+                <div>
+                    <h3>Real accounts, memberships &amp; fan tiers</h3>
+                    <p>Logins, member perks, points, and paid tiers. Actual working systems, not screenshots of a feature you'll "get later."</p>
+                </div>
+            </div>
+            <div class="build-item">
+                <div class="bi-ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v18h18M7 14l4-4 3 3 5-6"/></svg></div>
+                <div>
+                    <h3>Live data &amp; analytics behind the scenes</h3>
+                    <p>Content pipelines, engagement tracking, and dashboards so you can see what your audience actually does, not vanity numbers.</p>
+                </div>
+            </div>
+            <div class="build-item">
+                <div class="bi-ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+                <div>
+                    <h3>A smart helper bot on every site</h3>
+                    <p>A built-in assistant that answers your fans' or customers' questions in your voice, day or night.</p>
+                </div>
+            </div>
+            <div class="build-item">
+                <div class="bi-ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg></div>
+                <div>
+                    <h3>Free preview before you pay a cent</h3>
+                    <p>I spec it, build a live version you can actually log into and click around, and you only pay when it's ready to go live on your domain.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW I WORK -->
+    <section class="section">
+        <h2>How I <em>work</em> with you</h2>
         <div class="values">
             <div class="value">
                 <div class="val-num">01</div>
-                <h3>Match the human</h3>
-                <p>A bubbly vlogger shouldn't get a minimalist SaaS dashboard. We design for the person, not the trend.</p>
+                <h3>I match the human</h3>
+                <p>A bubbly creator doesn't get a cold corporate dashboard. I design around your personality, not the latest trend.</p>
             </div>
             <div class="value">
                 <div class="val-num">02</div>
                 <h3>No fake data</h3>
-                <p>Previews use real numbers, real pages, real flows. So you can see exactly what launch day feels like.</p>
+                <p>Previews use real pages and real flows, so what you see is genuinely what launch day feels like.</p>
             </div>
             <div class="value">
                 <div class="val-num">03</div>
-                <h3>You own it</h3>
-                <p>Your domain, your Airtable, your content, your code. We don't hold your site hostage.</p>
+                <h3>You own everything</h3>
+                <p>Your domain, your data, your code. I don't hold your site hostage. Walk away with the keys anytime.</p>
             </div>
             <div class="value">
                 <div class="val-num">04</div>
-                <h3>Real engineering</h3>
-                <p>Auth, analytics, data pipelines, integrations. Not just a pretty landing page.</p>
+                <h3>You talk to me</h3>
+                <p>No account managers, no phone tree. The person who builds it is the person who answers your email.</p>
             </div>
         </div>
     </section>
 
+    <!-- THE FAMILY -->
     <section class="section">
-        <h2>The <em>family</em></h2>
-        <p>Global Media is one arm of <strong>Globally Ballin LLC</strong>. Sister brands handle other corners of the internet.</p>
-        <div class="brand-family">
-            <div class="brand-tile">
-                <div class="bt-name">Globally <em>Ballin</em></div>
-                <p>Sports editorial and media. The original.</p>
+        <h2>The bigger <em>picture</em></h2>
+        <p>Global Media is one arm of <strong>Globally Ballin LLC</strong>, my company. It's the entertainment side: musicians, leagues, athletes, and personalities. A few sister brands handle other corners:</p>
+        <div class="values">
+            <div class="value">
+                <div class="val-num" style="font-size:1.1rem; font-style:normal; font-family:var(--font-body); font-weight:700; color:var(--color-text);">Globally Ballin</div>
+                <p>Sports editorial &amp; media. Where it all started.</p>
             </div>
-            <div class="brand-tile">
-                <div class="bt-name">Global <em>Storefront</em></div>
-                <p>Sites for bakeries, restaurants, and retail.</p>
+            <div class="value">
+                <div class="val-num" style="font-size:1.1rem; font-style:normal; font-family:var(--font-body); font-weight:700; color:var(--color-text);">Global Storefront</div>
+                <p>Sites for bakeries, restaurants &amp; local retail.</p>
             </div>
-            <div class="brand-tile">
-                <div class="bt-name">Global <em>Media</em></div>
+            <div class="value">
+                <div class="val-num" style="font-size:1.1rem; font-style:normal; font-family:var(--font-body); font-weight:700; color:var(--color-text);">Global Media</div>
                 <p>You're here. Entertainers &amp; leagues.</p>
             </div>
-            <div class="brand-tile">
-                <div class="bt-name">KRS <em>Moving</em></div>
-                <p>Separate venture — furniture installs + moving.</p>
-            </div>
         </div>
+
+        <a class="gs-callout" href="https://theglobalstorefront.com" target="_blank" rel="noopener">
+            <div class="gs-logo">
+                <img src="https://res.cloudinary.com/djngpyv15/image/upload/v1785113330/Global_Storefront_Logo_lw8psg.png" alt="Global Storefront logo" loading="lazy">
+            </div>
+            <div class="gs-body">
+                <div class="gs-eyebrow">Sister brand</div>
+                <h3>Global Storefront</h3>
+                <p>The retail side of the business: custom-coded sites for bakeries, restaurants, and local shops, with online ordering, scheduling, rewards, a full admin dashboard, and payment processing built for how they actually run their shop.</p>
+                <span class="gs-visit">Visit theglobalstorefront.com
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 14L21 3m0 0h-7m7 0v7M21 14v5a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h5"/></svg>
+                </span>
+            </div>
+        </a>
     </section>
 
+    <!-- CONTACT -->
     <section class="section">
-        <h2>Get in <em>touch</em></h2>
+        <h2>Let's build <em>yours</em></h2>
         <div class="contact-card">
             <div class="contact-row">
                 <div class="ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
                 <div>
-                    <div class="label">Email</div>
+                    <div class="label">Email me directly</div>
                     <div class="value"><a href="mailto:aaron@globalmedia.com">aaron@globalmedia.com</a></div>
                 </div>
             </div>
@@ -198,14 +323,14 @@
                 <div class="ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                 <div>
                     <div class="label">Based in</div>
-                    <div class="value">United States · Serving global clients</div>
+                    <div class="value">United States · Working with clients everywhere</div>
                 </div>
             </div>
             <div class="contact-row">
                 <div class="ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 14L21 3m0 0h-7m7 0v7M21 14v5a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h5"/></svg></div>
                 <div>
-                    <div class="label">Start a Project</div>
-                    <div class="value"><a href="index.html#contact">Send a brief →</a></div>
+                    <div class="label">Start a project</div>
+                    <div class="value"><a href="index.html#contact">Tell me what you're building →</a></div>
                 </div>
             </div>
         </div>
