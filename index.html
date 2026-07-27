@@ -152,7 +152,9 @@
             font-size: 0.85rem !important;
         }
         @media (max-width: 720px) {
-            .nav-links li:not(:last-child) { display: none; }
+            .nav-links { gap: 1rem; }
+            .nav-links li:not(.nav-about):not(:last-child) { display: none; }
+            .nav-links a { font-size: 0.82rem; }
         }
 
         /* LOGIN SECTION */
@@ -596,7 +598,7 @@
                 <li><a href="#what-we-build">What We Build</a></li>
                 <li><a href="#process">Process</a></li>
                 <li><a href="sales.html">Services</a></li>
-                <li><a href="about.html">About</a></li>
+                <li class="nav-about"><a href="about.html">About</a></li>
                 <li><a href="#loginForm" class="nav-cta">Client Login</a></li>
             </ul>
         </div>
