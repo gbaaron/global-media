@@ -20,7 +20,7 @@ Global Media operators who can manage clients, projects, and leads.
 |---|---|---|
 | Name | singleLineText | Display name |
 | Email | email | Login key |
-| PasswordHash | singleLineText | Demo-grade (plain). Upgrade to bcrypt for production. |
+| Password | singleLineText | Plain text, on purpose. Readable so a password can be handed back to a client. Nothing sensitive sits behind this login. |
 | CreatedAt | singleLineText | ISO date string |
 
 ### Clients (`tblr4zP0plQo56kff`)
@@ -31,7 +31,7 @@ Entertainer / league / personality clients with login access to preview their pr
 | Name | singleLineText | Person's real name |
 | Email | email | |
 | Username | singleLineText | Login identifier (alternative to email) |
-| PasswordHash | singleLineText | Demo-grade (plain). |
+| Password | singleLineText | Plain text, on purpose. See AdminUsers note. |
 | Company | singleLineText | Artist name / league / brand |
 | ProjectURL | url | Where the preview site lives |
 | ClientType | singleSelect | Musician / Podcaster / League / Personality / Athlete / Creator / Other |

@@ -24,7 +24,7 @@ exports.handler = async (event) => {
         if (name !== undefined) fields.Name = name.trim();
         if (email !== undefined) fields.Email = email.trim().toLowerCase();
         if (username !== undefined) fields.Username = username.trim();
-        if (password !== undefined && password !== '') fields.PasswordHash = password;
+        if (password !== undefined && password !== '') fields.Password = password;
         if (company !== undefined) fields.Company = company ? company.trim() : '';
         if (projectUrl !== undefined) fields.ProjectURL = projectUrl.trim();
         if (clientType !== undefined) fields.ClientType = clientType || null;

@@ -32,7 +32,11 @@ exports.handler = async (event) => {
 
         const admin = records[0];
 
-        if (password !== admin.get('PasswordHash')) {
+        // Stored in the clear, deliberately. This portal gates a preview link and nothing
+        // else, and Aaron needs to read a password back to hand it to a client. Reads the
+        // old name too so renaming the Airtable field does not take logins down mid-flight.
+        const stored = admin.get('Password') || admin.get('PasswordHash');
+        if (password !== stored) {
             return {
                 statusCode: 401,
                 body: JSON.stringify({ error: 'Invalid credentials' })

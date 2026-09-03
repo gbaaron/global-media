@@ -48,7 +48,7 @@ exports.handler = async (event) => {
             Name: name.trim(),
             Email: email.trim().toLowerCase(),
             Username: username.trim(),
-            PasswordHash: password,
+            Password: password,
             Company: company ? company.trim() : '',
             ProjectURL: projectUrl.trim(),
             CreatedAt: new Date().toISOString()
