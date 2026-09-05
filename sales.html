@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services | Global Media</title>
     <meta name="description" content="Custom fan hubs, league platforms, card games, and fantasy sims for entertainers, athletes, and personalities.">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23a855f7'/%3E%3Cg stroke='%2308080d' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M7 14v4'/%3E%3Cpath d='M12 10v12'/%3E%3Cpath d='M16 6v20'/%3E%3Cpath d='M20 10v12'/%3E%3Cpath d='M25 14v4'/%3E%3C/g%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎙️</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,400;1,600&display=swap" rel="stylesheet">
@@ -110,40 +110,6 @@
         .site-footer a { color: var(--color-text-muted); text-decoration: none; margin: 0 0.6rem; }
         .site-footer a:hover { color: var(--color-accent); }
         .site-footer .tagline { font-family: var(--font-display); font-style: italic; color: var(--color-text-muted); margin-bottom: 0.75rem; }
-
-        /* Service card art. A real screen where one exists; otherwise a flat
-           brand-tinted panel, which is honest about there being no shot yet. */
-        .service-shot {
-            display: block;
-            margin: -1.75rem -1.75rem 1.25rem;
-            aspect-ratio: 3 / 2;
-            overflow: hidden;
-            background: #05050a;
-            border-bottom: 1px solid var(--color-border);
-            position: relative;
-        }
-        .service-shot img {
-            width: 100%; height: 100%;
-            object-fit: cover; object-position: top center;
-            display: block;
-            transition: transform 0.45s ease;
-        }
-        .service-card:hover .service-shot img { transform: scale(1.04); }
-        .service-shot--none {
-            background:
-                radial-gradient(ellipse 70% 80% at 30% 0%, rgba(168, 85, 247, 0.22), transparent 70%),
-                linear-gradient(135deg, #14141f 0%, #0b0b12 100%);
-        }
-        .service-shot--none::after {
-            content: attr(data-note);
-            position: absolute; inset: auto 0 0 0;
-            padding: 0.75rem 1rem;
-            font-size: 0.7rem;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            color: var(--color-text-muted);
-        }
-        .service-card { overflow: hidden; }
     </style>
 </head>
 <body>
@@ -173,7 +139,6 @@
         <p class="sublead">Pick what fits. Mix and match. Every engagement starts with a free preview site.</p>
         <div class="service-grid">
             <div class="service-card">
-                <div class="service-shot"><img src="assets/work/service/fanhub.webp" alt="Zamily, a fan platform build" loading="lazy" decoding="async"></div>
                 <span class="service-tag">Fan Hub</span>
                 <h3>Personality Fan Hub</h3>
                 <p>The "everything page" for musicians, vloggers, podcasters, and creators.</p>
@@ -186,7 +151,6 @@
                 </ul>
             </div>
             <div class="service-card">
-                <div class="service-shot"><img src="assets/work/service/league.webp" alt="PVL Hub, a league platform build" loading="lazy" decoding="async"></div>
                 <span class="service-tag">League</span>
                 <h3>Sports League Platform</h3>
                 <p>Full-stack hub for a league, team, or sports property.</p>
@@ -199,7 +163,6 @@
                 </ul>
             </div>
             <div class="service-card">
-                <div class="service-shot"><img src="assets/work/service/cardgame.webp" alt="PVL Cards, a fantasy card game build" loading="lazy" decoding="async"></div>
                 <span class="service-tag">Game</span>
                 <h3>Fantasy Card Game</h3>
                 <p>Collectible card game tied to real player performance.</p>
@@ -212,7 +175,6 @@
                 </ul>
             </div>
             <div class="service-card">
-                <div class="service-shot"><img src="assets/work/service/sim.webp" alt="PVL Manager, a season simulation build" loading="lazy" decoding="async"></div>
                 <span class="service-tag">Sim</span>
                 <h3>Manager Simulation</h3>
                 <p>Season-long management game with drafting, trading, and matches.</p>
@@ -225,7 +187,6 @@
                 </ul>
             </div>
             <div class="service-card">
-                <div class="service-shot"><img src="assets/work/service/music.webp" alt="Yeng Nation, a musician site build" loading="lazy" decoding="async"></div>
                 <span class="service-tag">Music</span>
                 <h3>Musician Site</h3>
                 <p>Tour, discography, merch, and fan club in one place.</p>
@@ -238,7 +199,6 @@
                 </ul>
             </div>
             <div class="service-card">
-                <div class="service-shot"><img src="assets/work/service/podcast.webp" alt="PVL Podcast, a podcast hub build" loading="lazy" decoding="async"></div>
                 <span class="service-tag">Podcast</span>
                 <h3>Podcast Hub</h3>
                 <p>Ad-free home base for podcasters with power-user tools.</p>
@@ -251,7 +211,6 @@
                 </ul>
             </div>
             <div class="service-card">
-                <div class="service-shot"><img src="assets/work/service/cards.webp" alt="A collectible card build" loading="lazy" decoding="async"></div>
                 <span class="service-tag">Card</span>
                 <h3>Collectible Card Creator</h3>
                 <p>Design and export digital + physical trading cards for your brand.</p>
@@ -264,7 +223,6 @@
                 </ul>
             </div>
             <div class="service-card">
-                <div class="service-shot service-shot--none" data-note="No live build to show yet" aria-hidden="true"></div>
                 <span class="service-tag">AI</span>
                 <h3>AI Content Tool</h3>
                 <p>RAG-powered chat, content analysis, or persona assistant built on your corpus.</p>
@@ -277,7 +235,6 @@
                 </ul>
             </div>
             <div class="service-card">
-                <div class="service-shot service-shot--none" data-note="No live build to show yet" aria-hidden="true"></div>
                 <span class="service-tag">Landing</span>
                 <h3>Launch / Landing Page</h3>
                 <p>Fast-turn single-page site for a drop, a tour, or a campaign.</p>
